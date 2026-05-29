@@ -251,30 +251,16 @@ export function MainPage({ user, onSignOut }: MainPageProps) {
     }
   };
 
-  const getBackgroundStyle = () => {
-    const baseStyle = {
-      backgroundImage: getThemeBackground(),
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundAttachment: "fixed" as const
-    };
-    
-    if (user.theme === "kir") {
-      return {
-        ...baseStyle,
-        transform: "rotate(-90deg) scale(1.5)",
-        transformOrigin: "center center"
-      };
-    }
-    
-    return baseStyle;
-  };
-
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
+    <div className="min-h-screen flex flex-col relative">
       <div 
         className="fixed inset-0 z-0"
-        style={getBackgroundStyle()}
+        style={{
+          backgroundImage: getThemeBackground(),
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed"
+        }}
       />
       <div className="fixed inset-0 bg-black/20 z-0" />
       <TopBar user={user} onSignOut={onSignOut} />
