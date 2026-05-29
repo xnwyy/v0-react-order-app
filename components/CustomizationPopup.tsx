@@ -49,8 +49,8 @@ export function CustomizationPopup({ itemName, category, onConfirm, onClose }: C
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-gray-900 rounded-2xl p-6 w-full max-w-md border border-white/20 animate-fadeIn max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div className="bg-black/90 rounded-2xl p-6 w-full max-w-md border border-white/20 animate-fadeIn max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-xl font-bold text-white">Customize {itemName}</h3>
           <button

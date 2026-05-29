@@ -196,6 +196,7 @@ export function MainPage({ user, onSignOut }: MainPageProps) {
             setCondiments={setCondiments}
             onNext={goNext}
             onBack={goBack}
+            showToast={showToast}
           />
         );
       case "pickup":

@@ -9,21 +9,33 @@ interface CondimentsStepProps {
   setCondiments: (condiments: Record<string, Condiment>) => void;
   onNext: () => void;
   onBack: () => void;
+  showToast: (message: string, type?: "success" | "error" | "info") => void;
 }
 
-export function CondimentsStep({ condiments, setCondiments, onNext, onBack }: CondimentsStepProps) {
+export function CondimentsStep({ condiments, setCondiments, onNext, onBack, showToast }: CondimentsStepProps) {
   const updateCondiment = (id: string, change: number) => {
     const data = condimentsData.find(c => c.id === id);
     if (!data) return;
 
-    setCondiments({
-      ...condiments,
-      [id]: {
-        name: data.name,
-        quantity: Math.max(0, Math.min(10, (condiments[id]?.quantity || 0) + change)),
-        calories: data.calories
+    const currentQuantity = condiments[id]?.quantity || 0;
+    const newQuantity = Math.max(0, Math.min(10, currentQuantity + change));
+    
+    if (newQuantity !== currentQuantity) {
+      setCondiments({
+        ...condiments,
+        [id]: {
+          name: data.name,
+          quantity: newQuantity,
+          calories: data.calories
+        }
+      });
+
+      if (change > 0) {
+        showToast(`Added ${data.name}`, "success");
+      } else {
+        showToast(`Removed ${data.name}`, "info");
       }
-    });
+    }
   };
 
   const selectedCount = Object.values(condiments).reduce((sum, c) => sum + c.quantity, 0);

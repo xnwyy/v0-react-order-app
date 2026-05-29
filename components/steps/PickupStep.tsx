@@ -28,6 +28,7 @@ export function PickupStep({ pickupMethod, setPickupMethod, deliveryAddress, set
             <option value="" className="bg-gray-800">Select pickup method...</option>
             <option value="pickup" className="bg-gray-800">Store Pickup</option>
             <option value="delivery" className="bg-gray-800">Delivery</option>
+            <option value="dine-in" className="bg-gray-800">Dine-In</option>
           </select>
         </div>
 

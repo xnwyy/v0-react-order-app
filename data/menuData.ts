@@ -74,7 +74,7 @@ export const menuCategories: MenuCategory[] = [
   },
   {
     id: "mccafe",
-    name: "McCafé & Beverages",
+    name: "McCafe & Beverages",
     emoji: "☕",
     items: [
       { name: "Iced Coffee", price: 0, calories: 0, sizes: [
@@ -82,12 +82,12 @@ export const menuCategories: MenuCategory[] = [
         { size: "Medium", price: 2.49, calories: 190 },
         { size: "Large", price: 3.19, calories: 260 }
       ]},
-      { name: "Caramel Frappé", price: 0, calories: 0, sizes: [
+      { name: "Caramel Frappe", price: 0, calories: 0, sizes: [
         { size: "Small", price: 4.79, calories: 420 },
         { size: "Medium", price: 5.79, calories: 550 },
         { size: "Large", price: 6.79, calories: 670 }
       ]},
-      { name: "Mocha Frappé", price: 0, calories: 0, sizes: [
+      { name: "Mocha Frappe", price: 0, calories: 0, sizes: [
         { size: "Small", price: 3.79, calories: 410 },
         { size: "Medium", price: 4.79, calories: 510 },
         { size: "Large", price: 5.79, calories: 610 }
@@ -107,7 +107,17 @@ export const menuCategories: MenuCategory[] = [
         { size: "Medium", price: 3.99, calories: 290 },
         { size: "Large", price: 4.99, calories: 350 }
       ]},
-      { name: "Espresso Shot", price: 1.99, calories: 5 }
+      { name: "Espresso Shot", price: 1.99, calories: 5 },
+      { name: "Cappuccino", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 2.49, calories: 120 },
+        { size: "Medium", price: 3.49, calories: 160 },
+        { size: "Large", price: 4.49, calories: 200 }
+      ]},
+      { name: "Americano", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 1.99, calories: 10 },
+        { size: "Medium", price: 2.49, calories: 15 },
+        { size: "Large", price: 2.99, calories: 20 }
+      ]}
     ]
   },
   {
@@ -140,7 +150,73 @@ export const menuCategories: MenuCategory[] = [
         { size: "Medium", price: 1.89, calories: 230 },
         { size: "Large", price: 2.39, calories: 330 }
       ]},
+      { name: "Hi-C Orange Lavaburst", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 1.39, calories: 160 },
+        { size: "Medium", price: 1.89, calories: 230 },
+        { size: "Large", price: 2.39, calories: 330 }
+      ]},
+      { name: "Minute Maid Lemonade", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 1.59, calories: 130 },
+        { size: "Medium", price: 2.09, calories: 180 },
+        { size: "Large", price: 2.59, calories: 260 }
+      ]},
       { name: "Bottled Water", price: 1.50, calories: 0 }
+    ]
+  },
+  {
+    id: "tea",
+    name: "Tea",
+    emoji: "🍵",
+    items: [
+      { name: "Sweet Tea", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 1.29, calories: 90 },
+        { size: "Medium", price: 1.69, calories: 130 },
+        { size: "Large", price: 1.99, calories: 180 }
+      ]},
+      { name: "Unsweetened Iced Tea", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 1.29, calories: 0 },
+        { size: "Medium", price: 1.69, calories: 0 },
+        { size: "Large", price: 1.99, calories: 0 }
+      ]},
+      { name: "Hot Tea", price: 1.49, calories: 0 },
+      { name: "Green Tea", price: 1.79, calories: 0 },
+      { name: "Peach Tea", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 1.49, calories: 100 },
+        { size: "Medium", price: 1.89, calories: 140 },
+        { size: "Large", price: 2.29, calories: 190 }
+      ]}
+    ]
+  },
+  {
+    id: "icee",
+    name: "ICEE & Frozen Beverages",
+    emoji: "🧊",
+    items: [
+      { name: "ICEE Cherry", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 1.99, calories: 110 },
+        { size: "Medium", price: 2.49, calories: 160 },
+        { size: "Large", price: 2.99, calories: 220 }
+      ]},
+      { name: "ICEE Blue Raspberry", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 1.99, calories: 110 },
+        { size: "Medium", price: 2.49, calories: 160 },
+        { size: "Large", price: 2.99, calories: 220 }
+      ]},
+      { name: "ICEE Coke", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 1.99, calories: 120 },
+        { size: "Medium", price: 2.49, calories: 170 },
+        { size: "Large", price: 2.99, calories: 240 }
+      ]},
+      { name: "Frozen Strawberry Lemonade", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 2.29, calories: 140 },
+        { size: "Medium", price: 2.79, calories: 190 },
+        { size: "Large", price: 3.29, calories: 260 }
+      ]},
+      { name: "Frozen Fanta Wild Cherry", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 2.29, calories: 130 },
+        { size: "Medium", price: 2.79, calories: 180 },
+        { size: "Large", price: 3.29, calories: 250 }
+      ]}
     ]
   },
   {
@@ -173,7 +249,7 @@ export const menuCategories: MenuCategory[] = [
   },
   {
     id: "icecream",
-    name: "Ice Cream & Treats",
+    name: "Ice Cream & Frozen Treats",
     emoji: "🍦",
     items: [
       { name: "Vanilla Cone", price: 1.00, calories: 200 },
@@ -224,6 +300,50 @@ export const menuCategories: MenuCategory[] = [
     ]
   },
   {
+    id: "smoothies",
+    name: "Smoothies",
+    emoji: "🥤",
+    items: [
+      { name: "Strawberry Banana Smoothie", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 3.49, calories: 190 },
+        { size: "Medium", price: 4.29, calories: 250 },
+        { size: "Large", price: 4.99, calories: 330 }
+      ]},
+      { name: "Mango Pineapple Smoothie", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 3.49, calories: 200 },
+        { size: "Medium", price: 4.29, calories: 260 },
+        { size: "Large", price: 4.99, calories: 340 }
+      ]},
+      { name: "Blueberry Pomegranate Smoothie", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 3.49, calories: 180 },
+        { size: "Medium", price: 4.29, calories: 240 },
+        { size: "Large", price: 4.99, calories: 320 }
+      ]},
+      { name: "Mixed Berry Smoothie", price: 0, calories: 0, sizes: [
+        { size: "Small", price: 3.49, calories: 185 },
+        { size: "Medium", price: 4.29, calories: 245 },
+        { size: "Large", price: 4.99, calories: 325 }
+      ]}
+    ]
+  },
+  {
+    id: "international",
+    name: "International Specials",
+    emoji: "🌍",
+    items: [
+      { name: "McSpicy (Singapore)", price: 6.99, calories: 520 },
+      { name: "Teriyaki McBurger (Japan)", price: 6.49, calories: 480 },
+      { name: "McAloo Tikki (India)", price: 4.99, calories: 350 },
+      { name: "Croque McDo (France)", price: 5.49, calories: 420 },
+      { name: "McLobster (Canada)", price: 8.99, calories: 380 },
+      { name: "Samurai Pork Burger (Thailand)", price: 6.29, calories: 510 },
+      { name: "McArabia (Middle East)", price: 7.49, calories: 560 },
+      { name: "Prosperity Burger (Malaysia)", price: 6.79, calories: 530 },
+      { name: "Chicken Maharaja Mac (India)", price: 7.29, calories: 590 },
+      { name: "Ebi Filet-O (Japan)", price: 5.99, calories: 340 }
+    ]
+  },
+  {
     id: "combos",
     name: "Combo Meals",
     emoji: "🍔",
@@ -234,7 +354,8 @@ export const menuCategories: MenuCategory[] = [
       { name: "McChicken Combo", price: 8.79, calories: 950, includes: ["McChicken Sandwich", "Medium Fries", "Medium Drink"] },
       { name: "Filet-O-Fish Combo", price: 9.77, calories: 940, includes: ["Filet-O-Fish Sandwich", "Medium Fries", "Medium Drink"] },
       { name: "10 Piece McNuggets Combo", price: 8.99, calories: 990, includes: ["10 Piece McNuggets", "Medium Fries", "Medium Drink"] },
-      { name: "Crispy Chicken Sandwich Combo", price: 9.99, calories: 1020, includes: ["Crispy Chicken Sandwich", "Medium Fries", "Medium Drink"] }
+      { name: "Crispy Chicken Sandwich Combo", price: 9.99, calories: 1020, includes: ["Crispy Chicken Sandwich", "Medium Fries", "Medium Drink"] },
+      { name: "20 Piece McNuggets Combo", price: 12.49, calories: 1430, includes: ["20 Piece McNuggets", "Large Fries", "Large Drink"] }
     ]
   },
   {

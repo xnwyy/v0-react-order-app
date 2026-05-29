@@ -32,7 +32,19 @@ export function ReviewStep({
 }: ReviewStepProps) {
   const calculateEstimatedTime = (): string => {
     const totalItems = Object.values(orderItems).reduce((sum, item) => sum + item.quantity, 0);
-    const baseTime = pickupMethod === 'delivery' ? 15 : 10;
+    let baseTime: number;
+    
+    switch (pickupMethod) {
+      case 'delivery':
+        baseTime = 25;
+        break;
+      case 'dine-in':
+        baseTime = 8;
+        break;
+      default: // pickup
+        baseTime = 12;
+    }
+    
     const estimatedMinutes = Math.min(baseTime + (totalItems * 2), 60);
     
     if (estimatedMinutes >= 60) {
@@ -41,6 +53,17 @@ export function ReviewStep({
       return `${hours} hour${hours > 1 ? 's' : ''}${minutes > 0 ? ` ${minutes} min` : ''}`;
     }
     return `${estimatedMinutes} minutes`;
+  };
+
+  const getTimeLabel = (): string => {
+    switch (pickupMethod) {
+      case 'delivery':
+        return 'Estimated Delivery Time';
+      case 'dine-in':
+        return 'Estimated Wait Time';
+      default:
+        return 'Estimated Pickup Time';
+    }
   };
 
   const groupedItems: { name: string; size?: string; quantity: number; price: number; customizations?: Record<string, string> }[] = [];
@@ -85,7 +108,7 @@ export function ReviewStep({
         <div className="flex items-center gap-3 mb-4 pb-4 border-b border-white/10">
           <Clock className="text-green-400" size={24} />
           <div>
-            <div className="text-sm text-white/60">Estimated {pickupMethod === 'delivery' ? 'Delivery' : 'Pickup'} Time</div>
+            <div className="text-sm text-white/60">{getTimeLabel()}</div>
             <div className="text-lg font-bold text-white">{calculateEstimatedTime()}</div>
           </div>
         </div>
@@ -94,9 +117,13 @@ export function ReviewStep({
         <div className="flex items-center gap-3 mb-4 pb-4 border-b border-white/10">
           <MapPin className="text-blue-400" size={24} />
           <div>
-            <div className="text-sm text-white/60">{pickupMethod === 'delivery' ? 'Delivery Address' : 'Pickup Method'}</div>
+            <div className="text-sm text-white/60">
+              {pickupMethod === 'delivery' ? 'Delivery Address' : 
+               pickupMethod === 'dine-in' ? 'Order Type' : 'Pickup Method'}
+            </div>
             <div className="text-lg font-bold text-white">
-              {pickupMethod === 'delivery' ? deliveryAddress : 'Store Pickup'}
+              {pickupMethod === 'delivery' ? deliveryAddress : 
+               pickupMethod === 'dine-in' ? 'Dine-In' : 'Store Pickup'}
             </div>
           </div>
         </div>
