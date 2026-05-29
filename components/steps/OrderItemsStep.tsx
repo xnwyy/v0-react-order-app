@@ -87,14 +87,21 @@ export function OrderItemsStep({ orderItems, setOrderItems, onNext, onBack }: Or
     
     selections.forEach(selection => {
       const key = `${category}:${item.name}:${selection.size}`;
-      newItems[key] = {
-        name: item.name,
-        price: selection.price,
-        calories: selection.calories,
-        quantity: selection.quantity,
-        category,
-        size: selection.size
-      };
+      
+      if (newItems[key]) {
+        // Item with this size already exists, increment the quantity
+        newItems[key].quantity += selection.quantity;
+      } else {
+        // New size, create new entry
+        newItems[key] = {
+          name: item.name,
+          price: selection.price,
+          calories: selection.calories,
+          quantity: selection.quantity,
+          category,
+          size: selection.size
+        };
+      }
     });
     
     setOrderItems(newItems);
@@ -142,6 +149,7 @@ export function OrderItemsStep({ orderItems, setOrderItems, onNext, onBack }: Or
         newItems[customizationPopup.itemKey].price += extraCost;
         
         setOrderItems(newItems);
+        showToast(`${customizationPopup.itemName} customized`, 'success');
       }
     }
     setCustomizationPopup(null);
