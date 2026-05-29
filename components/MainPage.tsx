@@ -167,7 +167,7 @@ export function MainPage({ user, onSignOut }: MainPageProps) {
     if (user.theme === "sav") {
       return "url('https://wallpaperaccess.com/full/479670.jpg')";
     }
-    return "url('https://getwallpapers.com/wallpaper/full/e/2/8/1121342-free-download-baby-kitten-wallpaper-1920x1080-1080p.jpg')";
+    return "url('https://i.pinimg.com/736x/f1/22/0c/f1220c9e7aaa9eca541b060c4fff6494.jpg')";
   };
 
   const renderStep = () => {
