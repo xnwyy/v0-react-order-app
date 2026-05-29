@@ -252,15 +252,17 @@ export function MainPage({ user, onSignOut }: MainPageProps) {
   };
 
   return (
-    <div
-      className="min-h-screen flex flex-col relative"
-      style={{
-        backgroundImage: getThemeBackground(),
-        backgroundSize: "cover",
-        backgroundPosition: "center"
-      }}
-    >
-      <div className="absolute inset-0 bg-black/20 z-0" />
+    <div className="min-h-screen flex flex-col relative">
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          backgroundImage: getThemeBackground(),
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed"
+        }}
+      />
+      <div className="fixed inset-0 bg-black/20 z-0" />
       <TopBar user={user} onSignOut={onSignOut} />
       <main className="flex-1 overflow-y-auto px-4 md:px-10 py-6 relative z-10">
         {renderStep()}

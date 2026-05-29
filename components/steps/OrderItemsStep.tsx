@@ -157,6 +157,18 @@ export function OrderItemsStep({ orderItems, setOrderItems, onNext, onBack }: Or
     return orderItems[key]?.quantity || 0;
   };
 
+  const getSizeBreakdown = (item: MenuItem, category: string): { size: string; quantity: number }[] => {
+    if (!itemHasSizes(item)) return [];
+    
+    return Object.entries(orderItems)
+      .filter(([key]) => key.startsWith(`${category}:${item.name}:`))
+      .map(([key, orderItem]) => ({
+        size: orderItem.size || key.split(':')[2],
+        quantity: orderItem.quantity
+      }))
+      .filter(s => s.quantity > 0);
+  };
+
   const filteredCategories = menuCategories.filter(category => {
     if (!searchQuery) return true;
     return category.items.some(item => 
@@ -220,6 +232,7 @@ export function OrderItemsStep({ orderItems, setOrderItems, onNext, onBack }: Or
         {filteredCategories[activeTab]?.items.map((item) => {
           const quantity = getItemQuantity(item, filteredCategories[activeTab].id);
           const hasSizes = itemHasSizes(item);
+          const sizeBreakdown = getSizeBreakdown(item, filteredCategories[activeTab].id);
           
           return (
             <div
@@ -240,6 +253,19 @@ export function OrderItemsStep({ orderItems, setOrderItems, onNext, onBack }: Or
                   {item.includes && (
                     <div className="text-xs text-pink-400 mt-1">
                       Includes: {item.includes.join(', ')}
+                    </div>
+                  )}
+                  {/* Size Breakdown Display */}
+                  {hasSizes && sizeBreakdown.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {sizeBreakdown.map((s) => (
+                        <span 
+                          key={s.size} 
+                          className="inline-flex items-center px-2 py-1 bg-pink-500/20 border border-pink-500/40 rounded-full text-xs text-pink-300"
+                        >
+                          {s.quantity} - {s.size}
+                        </span>
+                      ))}
                     </div>
                   )}
                 </div>
